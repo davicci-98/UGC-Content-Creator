@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
+            "url": "file:///Users/davicci/Documents/Claude%20Projects/UGC%20Content%20Creator/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

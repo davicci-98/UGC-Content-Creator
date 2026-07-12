@@ -45,6 +45,16 @@ ul { list-style: none; }                       /* listas sin viñetas */
   max-width: 1100px;               /* no más ancho que esto */
   margin: 0 auto;                  /* centra la navbar en la página */
   padding: 20px 24px;              /* aire por dentro */
+  gap: 32px;                       /* separación entre los elementos (logo, menú, botón) */
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  color: var(--color-accent);
+  font-weight: bold;
+  white-space: nowrap;  /* evita que el logo se rompa en varias líneas */
+  font-weight: 700;
 }
 
 /* Los enlaces del menú, en fila */
@@ -59,4 +69,153 @@ ul { list-style: none; }                       /* listas sin viñetas */
   color: var(--color-bg);   /* texto crema sobre marrón 👇 */
   padding: 10px 18px;
   border-radius: 8px;
+}
+
+/* === HERO === */
+.hero {
+  max-width: 800px;
+  margin: 0 auto;              /* centra el bloque */
+  padding: 60px 24px;          /* mucho aire arriba/abajo */
+  text-align: center;          /* todo el texto centrado */
+}
+
+.eyebrow {
+  text-transform: uppercase;   /* MAYÚSCULAS */
+  letter-spacing: 2px;         /* letras separadas, se ve premium */
+  font-size: 14px;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+}
+
+.headline {
+  font-size: 56px;             /* titular grande (ya usa Playfair) */
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.subheadline {
+  font-size: 18px;
+  color: var(--color-muted);
+  max-width: 600px;            /* líneas no demasiado largas = se lee mejor */
+  margin: 0 auto 32px;         /* centrado + separación abajo */
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  padding: 14px 28px;
+  border-radius: var(--radius);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  padding: 12px 26px;
+  border-radius: var(--radius);
+}
+
+.btn-primary, .btn-secondary {
+  display: inline-block;   /* ahora sí respetan tamaño y márgenes */
+  margin: 8px;             /* separación entre ellos y del texto */
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.stat-label {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* === SECCIONES (cabeceras reutilizables) === */
+.services {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+.section-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+.section-title { font-size: 40px; margin-bottom: 12px; }
+.section-subtitle {
+  color: var(--color-muted);
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+
+/* === REJILLA DE SERVICIOS (CSS Grid) === */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 columnas iguales */
+  gap: 24px;                               /* separación entre tarjetas */
+  text-align: left;
+}
+
+.service-card {
+  background-color: var(--color-card);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
+.service-name { font-size: 20px; margin-bottom: 12px; }
+
+/* === MARCAS === */
+.brands {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+.brands-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-bottom: 28px;
+}
+.brands-list {
+  display: flex;
+  flex-wrap: wrap;             /* si no caben en una fila, saltan a la siguiente */
+  justify-content: center;
+  gap: 16px 40px;             /* 16px entre filas, 40px entre columnas */
+}
+.brand {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--color-muted);
+}
+
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+}
+.about-title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+.about-headline {
+  font-size: 36px;
+  line-height: 1.25;
 }

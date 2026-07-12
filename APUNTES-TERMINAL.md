@@ -64,8 +64,32 @@ touch index.html css/styles.css js/main.js
 
 ---
 
-## 🔜 Pendiente (lo añadiré cuando lleguemos)
+## 🌳 Git — guardar y subir mi trabajo
 
-- Comandos de **Git**: `git init`, `git add`, `git commit`, `git push`.
-- Publicar en **GitHub** y **GitHub Pages**.
+**Idea clave: Git tiene 4 "zonas".** Un cambio viaja así:
+
+1. **Carpeta de trabajo** (donde edito) →
+2. **Staging / "carrito"** (lo que meteré en el próximo guardado) → con `git add`
+3. **Repositorio local** (mi historial de guardados) → con `git commit`
+4. **GitHub / remoto** (la nube) → con `git push`
+
+| Comando | Qué hace |
+|---------|----------|
+| `git status` | Muestra qué archivos cambiaron y qué está en el "carrito". Úsalo MUCHO. |
+| `git add .` | Mete TODOS los cambios en el carrito (el `.` = todo). |
+| `git add archivo` | Mete solo ese archivo al carrito. |
+| `git commit -m "mensaje"` | Guarda un "punto de control" con una descripción. |
+| `git push` | Sube tus commits a GitHub. |
+| `git log --oneline` | Lista el historial de commits (uno por línea). |
+| `git rm --cached archivo` | Deja de vigilar un archivo (sin borrarlo del disco). |
+
+**Mi repo en GitHub:** https://github.com/davicci-98/UGC-Content-Creator
+
+### El `.gitignore`
+Archivo que lista lo que Git debe **ignorar** (basura que no quiero subir), como
+`.DS_Store` (archivo oculto que crea macOS en cada carpeta).
+
+## 🔜 Pendiente
+
+- Publicar la web en **GitHub Pages** (que sea visible en internet).
 - Instalar **Node.js** para conectar el Asistente IA con Ollama.
