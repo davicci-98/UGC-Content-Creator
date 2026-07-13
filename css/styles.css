@@ -142,7 +142,7 @@ ul { list-style: none; }                       /* listas sin viñetas */
 .services {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 80px 24px;
+  padding: 60px 24px;
   text-align: center;
 }
 .section-eyebrow {
@@ -218,4 +218,195 @@ ul { list-style: none; }                       /* listas sin viñetas */
 .about-headline {
   font-size: 36px;
   line-height: 1.25;
+}
+
+/* === ASISTENTE IA === */
+.assistant {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+/* La tarjeta del chat */
+.chat {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;         /* recorta lo que se salga de las esquinas redondas */
+  text-align: left;
+}
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+.chat-status { color: var(--color-accent); }
+
+/* El cuerpo: una COLUMNA de burbujas */
+.chat-body {
+  display: flex;
+  flex-direction: column;   /* burbujas apiladas verticalmente */
+  gap: 12px;
+  padding: 20px;
+}
+
+/* Estilo común de toda burbuja */
+.msg {
+  padding: 12px 16px;
+  border-radius: 14px;
+  max-width: 80%;
+  font-size: 15px;
+}
+
+/* Burbuja del BOT: a la izquierda */
+.msg-bot {
+  align-self: flex-start;   /* 👈 se pega a la izquierda */
+  background-color: var(--color-bg);
+}
+
+/* Burbuja del USUARIO: a la derecha */
+.msg-user {
+  align-self: flex-end;     /* 👉se pega a la derecha */
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+/* Estilo del texto demo visual */
+.chat-note {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 13px;
+  padding: 0 20px 16px;
+  margin-top: 12px;
+}
+
+/* === RESULTADOS: galería === */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 columnas */
+  gap: 16px;
+  margin: 48px 0;
+}
+.portfolio-item {
+  aspect-ratio: 9 / 16;        /* 👈 forma vertical, como un Reel */
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  display: flex;               /* para centrar la etiqueta */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+  color: var(--color-muted);
+  font-family: var(--font-heading);
+}
+
+.results {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.testimonial {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.testimonial cite {
+  display: block;
+  margin-top: 20px;
+  color: var(--color-muted);
+  font-size:15px;
+  font-style: normal;
+}
+
+/* === CONTACTO === */
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;   /* campos apilados */
+  gap: 16px;
+  margin-top: 40px;
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: inherit;     /* 👈 clave: que usen Inter, no la fuente fea por defecto */
+  font-size: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--color-card);
+  color: var(--color-text);
+}
+
+/* Botón del formulario */
+.contact-form button {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* === FOOTER === */
+.footer {
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid var(--color-border);
+}
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--color-accent);
+  margin-bottom: 8px;
+}
+.footer-copy {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+/* ===================================== */
+/* === RESPONSIVE: móvil y tablet     === */
+/* ===================================== */
+@media (max-width: 768px) {
+
+  /* Navbar en columna y centrada */
+  .navbar {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Titulares más pequeños (56px es enorme en móvil) */
+  .headline { font-size: 36px; }
+  .section-title { font-size: 30px; }
+
+  /* Servicios: de 3 columnas a 1 */
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* Galería: de 4 columnas a 2 */
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Stats: de fila a columna */
+  .stats { flex-wrap: wrap; gap: 24px; }
+
+  /* Menos padding para no desperdiciar espacio */
+  .hero { padding: 48px 20px; }
 }
