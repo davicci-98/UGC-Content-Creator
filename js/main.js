@@ -64,3 +64,23 @@ function pintarItem(archivo) {
 // 5) Cerrar el modal (botón X o clic en el fondo oscuro)
 document.querySelector("#modal-close").addEventListener("click", () => modal.hidden = true);
 modal.addEventListener("click", (e) => { if (e.target === modal) modal.hidden = true; });
+
+// === MENÚ HAMBURGUESA (móvil) ===
+const navToggle = document.querySelector(".nav-toggle");
+const navLinks  = document.querySelector(".nav-links");
+
+navToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");                 // añade/quita la clase .open
+  const abierto = navLinks.classList.contains("open");
+  navToggle.textContent = abierto ? "✕" : "☰";       // cambia el icono
+  navToggle.setAttribute("aria-expanded", abierto);
+});
+
+// Cerrar el menú al pulsar un enlace (buena UX)
+navLinks.querySelectorAll("a").forEach(enlace => {
+  enlace.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    navToggle.textContent = "☰";
+    navToggle.setAttribute("aria-expanded", "false");
+  });
+});

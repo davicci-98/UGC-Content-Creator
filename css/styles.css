@@ -78,6 +78,11 @@ ul { list-style: none; }                       /* listas sin viñetas */
   margin: 0 auto;              /* centra el bloque */
   padding: 60px 24px;          /* mucho aire arriba/abajo */
   text-align: center;          /* todo el texto centrado */
+  background-image:
+    linear-gradient(hsl(36 33% 97% / 0.6), hsl(36 33% 97% / 0.6)),  /* overlay más suave */
+    url("../images/mar.png");                                     /* tu foto */
+  background-size: cover;      /* la imagen llena la sección */
+  background-position: center;
 }
 
 .eyebrow {
@@ -428,13 +433,33 @@ ul { list-style: none; }                       /* listas sin viñetas */
 /* ===================================== */
 /* === RESPONSIVE: móvil y tablet     === */
 /* ===================================== */
+
+/* Botón hamburguesa (oculto en escritorio) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-accent);
+  cursor: pointer;
+}
 @media (max-width: 768px) {
 
-  /* Navbar en columna y centrada */
+    /* Navbar móvil: logo + hamburguesa arriba, menú desplegable debajo */
   .navbar {
-    flex-direction: column;
-    gap: 16px;
+    flex-wrap: wrap;
   }
+  .nav-toggle { display: block; }        /* mostrar la hamburguesa */
+  .nav-links {
+    display: none;                       /* menú oculto por defecto */
+    flex-direction: column;
+    width: 100%;                         /* ocupa todo el ancho al abrirse */
+    gap: 16px;
+    order: 3;                            /* aparece debajo del logo/botón */
+  }
+  .nav-links.open { display: flex; }     /* visible solo con la clase .open */
+  .btn-cta { display: none; }            /* el CTA suelto se oculta (ya está "Contacto" en el menú) */
 
   /* Titulares más pequeños (56px es enorme en móvil) */
   .headline { font-size: 36px; }
@@ -567,3 +592,12 @@ body {
   color: var(--color-muted);
 }
 .modal-title { font-size: 24px; margin-bottom: 24px; }
+
+.contact {
+  background-image:
+    linear-gradient(hsl(25 15% 15% / 0.55), hsl(25 15% 15% / 0.55)),  /* overlay OSCURO */
+    url("images/fondo-contacto.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--color-bg);   /* texto CLARO porque el overlay es oscuro */
+}
