@@ -19,7 +19,6 @@
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#asistente">Asistente IA</a></li>
-      <li><a href="#resultados">Resultados</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a href="#contacto" class="btn-cta">Trabajemos juntos</a>
@@ -71,48 +70,91 @@
       <h2 class="about-headline">No hago anuncios. Cuento historias que la gente quiere mirar hasta el final.</h2>
   </section>
 
-  <!-- SERVICIOS -->
+  <!-- TRABAJO: SERVICIOS + RESULTADOS -->
   <section class="services" id="servicios">
-    <p class="section-eyebrow">Servicios</p>
-    <h2 class="section-title">Lo que creo para tu marca</h2>
-    <p class="section-subtitle">Cada formato pensado para una etapa distinta del recorrido de tu cliente.</p>
+    <p class="section-eyebrow">Servicios · Resultados</p>
+    <h2 class="section-title">Lo que creo y lo que consigo</h2>
+    <p class="section-subtitle">Cada formato, con un ejemplo real y su resultado. Toca una tarjeta para ver el contenido.</p>
 
     <div class="services-grid">
 
-      <article class="service-card">
-        <h3 class="service-name">Lifestyle Photography</h3>
-        <p class="service-desc">Fotografía de producto en contexto real, luz natural y estética cuidada para feed y catálogo.</p>
-      </article>
+      <a class="case-card" href="content/lifestyle-photography/">
+        <div class="case-media">
+          <img src="https://picsum.photos/id/64/600/400" alt="Ejemplo de Lifestyle Photography">
+          <span class="case-metric">+2.4M views</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-name">Lifestyle Photography</h3>
+          <p class="case-desc">Fotografía de producto en contexto real, luz natural y estética cuidada para feed y catálogo.</p>
+        </div>
+      </a>
 
-      <article class="service-card">
-        <h3 class="service-name">Reels / TikTok Orgánicos</h3>
-        <p class="service-desc">Videos cortos y concisos pensados para sentirse 100% cómodos.</p>
-      </article>
+      <a class="case-card" href="content/reels-tiktok/">
+        <div class="case-media">
+          <img src="https://picsum.photos/id/225/600/400" alt="Ejemplo de Reels / TikTok">
+          <span class="case-metric">8.4% engagement</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-name">Reels / TikTok Orgánicos</h3>
+          <p class="case-desc">Videos cortos y concisos pensados para sentirse 100% cómodos.</p>
+        </div>
+      </a>
 
-      <!-- 👇 AÑADE TÚ LAS 4 RESTANTES (mismo patrón que arriba) -->
+      <a class="case-card" href="content/narrativa-emocional/">
+        <div class="case-media">
+          <img src="https://picsum.photos/id/21/600/400" alt="Ejemplo de Narrativa emocional">
+          <span class="case-metric">3× recuerdo</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-name">Narrativa emocional</h3>
+          <p class="case-desc">Videos de largo formato que buscan conectar con la audiencia a un nivel más profundo.</p>
+        </div>
+      </a>
 
-      <article class="service-card">
-        <h3 class="service-name">Narrativa emocional</h3>
-        <p class="service-desc">Videos de largo formato que buscan conectar con la audiencia a un nivel más profundo.</p>
-      </article>
+      <a class="case-card" href="content/unboxing-reviews/">
+        <div class="case-media">
+          <img src="https://picsum.photos/id/103/600/400" alt="Ejemplo de Unboxing Reviews">
+          <span class="case-metric">+90% retención</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-name">Unboxing Reviews</h3>
+          <p class="case-desc">Aperturas centradas en capturar la emoción y la experiencia del cliente al recibir tu producto.</p>
+        </div>
+      </a>
 
-      <article class="service-card">
-        <h3 class="service-name">Unboxing Reviews</h3>
-        <p class="service-desc">Aperturas centradas en capturar la emoción y la experiencia del cliente al recibir tu producto.</p>
-      </article>
-      
-      <article class="service-card">
-        <h3 class="service-name">Más allá de la experiencia</h3>
-        <p class="service-desc">Contenido que explora la realidad desde todas las perspectivas.</p>
-      </article>
+      <a class="case-card" href="content/mas-alla-experiencia/">
+        <div class="case-media">
+          <img src="https://picsum.photos/id/160/600/400" alt="Ejemplo de Más allá de la experiencia">
+          <span class="case-metric">12M alcance</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-name">Más allá de la experiencia</h3>
+          <p class="case-desc">Contenido que explora la realidad desde todas las perspectivas.</p>
+        </div>
+      </a>
 
-      <article class="service-card">
-        <h3 class="service-name">Anuncios de alta conversión</h3>
-        <p class="service-desc">Videos cortos y directos que buscan generar acción inmediata en tu audiencia.</p>
-      </article>
+      <a class="case-card" href="content/anuncios-conversion/">
+        <div class="case-media">
+          <img src="https://picsum.photos/id/180/600/400" alt="Ejemplo de Anuncios de alta conversión">
+          <span class="case-metric">5.2× ROAS</span>
+        </div>
+        <div class="case-body">
+          <h3 class="case-name">Anuncios de alta conversión</h3>
+          <p class="case-desc">Videos cortos y directos que buscan generar acción inmediata en tu audiencia.</p>
+        </div>
+      </a>
 
     </div>
   </section>
+
+  <!-- MODAL: galería de contenido de Drive -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-box">
+      <button id="modal-close" class="modal-close" aria-label="Cerrar">×</button>
+      <h3 id="modal-title" class="modal-title"></h3>
+      <div id="modal-galeria" class="galeria-grid"></div>
+    </div>
+  </div>
 
 <!-- ASISTENTE IA -->
 
@@ -133,34 +175,6 @@
     </div>
     <p class="chat-note">Demo visual — la IA se conectará próximamente</p>
   </div>
-</section>
-
-<!-- RESULTADOS -->
-  
-<section class="results" id="resultados">
-  <p class="section-eyebrow">Resultados</p>
-  <h2 class="section-title">Trabajo seleccionado</h2>
-
-  <!-- Métricas (reutilizamos .stats del hero) -->
-  <div class="stats">
-    <div class="stat"><span class="stat-number">12M</span><span class="stat-label">views</span></div>
-    <div class="stat"><span class="stat-number">8.4%</span><span class="stat-label">engagement</span></div>
-    <div class="stat"><span class="stat-number">+40</span><span class="stat-label">marcas</span></div>
-  </div>
-
-  <!-- Galería de trabajo (placeholders, luego pondrás vídeos/fotos) -->
-  <div class="portfolio-grid">
-    <article class="portfolio-item">Reel · Skincare</article>
-    <article class="portfolio-item">TikTok · Café</article>
-    <article class="portfolio-item">Unboxing · Moda</article>
-    <article class="portfolio-item">Ad · Fitness</article>
-  </div>
-
-  <!-- Testimonio -->
-  <blockquote class="testimonial">
-    "Su contenido triplicó nuestro engagement en dos meses. No parece publicidad, parece una recomendación de alguien en quien confías."
-    <cite>— Marina R., Fundadora de Verdant</cite>
-  </blockquote>
 </section>
 
 <!-- CONTACTO -->

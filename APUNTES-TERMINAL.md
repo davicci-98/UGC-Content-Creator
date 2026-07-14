@@ -31,6 +31,8 @@
 | `mv viejo nuevo` | **M**o**v**e: mueve o **renombra** un archivo. | `mv index.html index-viejo.html` |
 | `cp origen destino` | **C**o**p**y: copia un archivo. | `cp index.html backup.html` |
 | `open .` | Abre la carpeta actual en el Finder (el punto `.` significa "aquí"). | `open .` |
+| `mkdir images` | Crea la carpeta `images/` donde guardo las fotos/miniaturas de la web. | `mkdir images` |
+| `mkdir -p a/b c/d` | Crea varias carpetas (y subcarpetas) de una vez. `-p` crea las intermedias. | `mkdir -p content/reels content/ads` |
 
 ---
 

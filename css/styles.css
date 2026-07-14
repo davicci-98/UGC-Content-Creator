@@ -20,6 +20,7 @@
   --color-card: hsl(36 25% 95%);     /* fondo de tarjetas */
   --color-border: hsl(36 20% 85%);   /* líneas y bordes */
   --radius: 1rem;                    /* redondeo de esquinas */
+  --space-section: 120px;   /* aire vertical entre secciones */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -172,6 +173,14 @@ ul { list-style: none; }                       /* listas sin viñetas */
   padding: 32px;
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px hsl(25 15% 15% / 0.06);   /* 👈 sombra suave */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;  /* 👈 cambio suave */
+}
+
+/* Estado al pasar el ratón por encima */
+.service-card:hover {
+  transform: translateY(-4px);                      /* 👈 se levanta */
+  box-shadow: 0 8px 30px hsl(25 15% 15% / 0.12);    /* 👈 sombra más marcada */
 }
 
 .service-name { font-size: 20px; margin-bottom: 12px; }
@@ -237,7 +246,9 @@ ul { list-style: none; }                       /* listas sin viñetas */
   border-radius: var(--radius);
   overflow: hidden;         /* recorta lo que se salga de las esquinas redondas */
   text-align: left;
+  box-shadow: 0 4px 20px hsl(25 15% 15% / 0.06);   /* 👈 profundidad, sin hover */ 
 }
+
 .chat-header {
   display: flex;
   justify-content: space-between;
@@ -293,18 +304,38 @@ ul { list-style: none; }                       /* listas sin viñetas */
   gap: 16px;
   margin: 48px 0;
 }
+
 .portfolio-item {
-  aspect-ratio: 9 / 16;        /* 👈 forma vertical, como un Reel */
-  background-color: var(--color-card);
-  border: 1px solid var(--color-border);
+  position: relative;            /* ancla para la etiqueta superpuesta */
+  aspect-ratio: 9 / 16;
   border-radius: var(--radius);
-  display: flex;               /* para centrar la etiqueta */
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 12px;
-  color: var(--color-muted);
+  overflow: hidden;              /* recorta la imagen a las esquinas redondeadas */
+  box-shadow: 0 4px 20px hsl(25 15% 15% / 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.portfolio-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px hsl(25 15% 15% / 0.12);
+}
+
+/* La imagen llena la tarjeta sin deformarse */
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* 👈 el truco: rellena y recorta, no estira */
+  display: block;
+}
+
+/* La etiqueta, encima de la imagen, sobre un degradado oscuro */
+.portfolio-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 14px 16px;
+  color: #fff;
   font-family: var(--font-heading);
+  background: linear-gradient(transparent, hsl(25 15% 15% / 0.75));
 }
 
 .results {
@@ -383,6 +414,17 @@ ul { list-style: none; }                       /* listas sin viñetas */
   font-size: 14px;
 }
 
+/* === ESPACIADO GENEROSO ENTRE SECCIONES === */
+.hero,
+.about,
+.services,
+.assistant,
+.results,
+.contact {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+
 /* ===================================== */
 /* === RESPONSIVE: móvil y tablet     === */
 /* ===================================== */
@@ -407,6 +449,121 @@ ul { list-style: none; }                       /* listas sin viñetas */
   /* Stats: de fila a columna */
   .stats { flex-wrap: wrap; gap: 24px; }
 
-  /* Menos padding para no desperdiciar espacio */
-  .hero { padding: 48px 20px; }
+  /* En móvil, menos aire en TODAS las secciones de golpe */
+  :root { --space-section: 64px; }
 }
+
+/* === BANDAS DE COLOR EN SECCIONES ALTERNAS === */
+
+/* Evita una barra de scroll horizontal por el truco del 100vw */
+body {
+  overflow-x: hidden;
+}
+
+/* Estas secciones tendrán banda de fondo */
+.services,
+.results {
+  position: relative;   /* necesario para posicionar la banda dentro */
+}
+
+/* La banda: un rectángulo a lo ancho de TODA la pantalla, detrás del contenido */
+.services::before,
+.results::before {
+  content: "";                      /* obligatorio para que exista el ::before */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);      /* centra la banda */
+  width: 100vw;                     /* 100vw = el ancho completo de la ventana */
+  background-color: var(--color-card);
+  z-index: -1;                      /* la manda DETRÁS del contenido */
+}
+
+/* === TARJETAS CASO DE ESTUDIO (Servicios + Resultados) === */
+.case-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px hsl(25 15% 15% / 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: inherit;              /* es un <a>: que herede el color de texto normal */
+}
+.case-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px hsl(25 15% 15% / 0.12);
+}
+.case-media {
+  position: relative;          /* ancla para la píldora de la métrica */
+  aspect-ratio: 3 / 2;
+}
+.case-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.case-metric {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;        /* forma de píldora */
+}
+.case-body { padding: 24px; }
+.case-name { font-size: 20px; margin-bottom: 10px; }
+.case-desc { color: var(--color-muted); font-size: 15px; }
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+.galeria-item {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;          /* recorta imágenes al formato vertical */
+  border: none;               /* para los <iframe> de vídeo */
+  border-radius: var(--radius);
+  display: block;
+}
+
+/* === MODAL === */
+.modal {
+  position: fixed;
+  inset: 0;                                /* ocupa toda la pantalla */
+  background: hsl(25 15% 15% / 0.6);       /* fondo oscuro semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;                            /* por encima de todo */
+}
+.modal[hidden] { display: none; }          /* 👈 imprescindible (ver nota) */
+.modal-box {
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: none; border: none;
+  font-size: 28px; line-height: 1;
+  cursor: pointer;
+  color: var(--color-muted);
+}
+.modal-title { font-size: 24px; margin-bottom: 24px; }
