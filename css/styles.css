@@ -74,16 +74,24 @@ ul { list-style: none; }                       /* listas sin viñetas */
 
 /* === HERO === */
 .hero {
-  max-width: 800px;
-  margin: 0 auto;              /* centra el bloque */
-  padding: 60px 24px;          /* mucho aire arriba/abajo */
+  min-height: 82vh;            /* ocupa casi toda la pantalla: adiós al hueco vacío */
+  display: flex;              /* activo flexbox para centrar el contenido */
+  flex-direction: column;    /* eyebrow, titular y subtítulo apilados */
+  align-items: center;       /* centrado horizontal */
+  justify-content: center;   /* centrado vertical (rellena el espacio sobrante) */
+  padding: 80px 24px;         /* aire por dentro */
   text-align: center;          /* todo el texto centrado */
   background-image:
-    linear-gradient(hsl(36 33% 97% / 0.6), hsl(36 33% 97% / 0.6)),  /* overlay más suave */
-    url("../images/mar.png");                                     /* tu foto */
-  background-size: cover;      /* la imagen llena la sección */
-  background-position: center;
+    linear-gradient(hsl(25 30% 12% / 0.45), hsl(25 30% 12% / 0.55)),  /* velo oscuro para que el texto se lea */
+    url("images/Fondo_cabecera_optimizado.jpg");                       /* tu foto de cabecera */
+  background-size: cover;      /* la imagen llena la sección sin deformarse */
+  background-position: center; /* la mantiene centrada al recortar */
 }
+
+/* En el hero, el texto va sobre la foto → lo pongo claro para que resalte */
+.hero .eyebrow     { color: hsl(36 40% 88%); }
+.hero .headline    { color: var(--color-bg); }
+.hero .subheadline { color: hsl(36 25% 90%); }
 
 .eyebrow {
   text-transform: uppercase;   /* MAYÚSCULAS */
@@ -104,44 +112,6 @@ ul { list-style: none; }                       /* listas sin viñetas */
   color: var(--color-muted);
   max-width: 600px;            /* líneas no demasiado largas = se lee mejor */
   margin: 0 auto 32px;         /* centrado + separación abajo */
-}
-
-.btn-primary {
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-  padding: 14px 28px;
-  border-radius: var(--radius);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--color-accent);
-  border: 2px solid var(--color-accent);
-  padding: 12px 26px;
-  border-radius: var(--radius);
-}
-
-.btn-primary, .btn-secondary {
-  display: inline-block;   /* ahora sí respetan tamaño y márgenes */
-  margin: 8px;             /* separación entre ellos y del texto */
-}
-
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin-top: 48px;
-}
-
-.stat-number {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--color-accent);
-}
-
-.stat-label {
-  color: var(--color-muted);
-  font-size: 14px;
 }
 
 /* === SECCIONES (cabeceras reutilizables) === */
@@ -190,116 +160,56 @@ ul { list-style: none; }                       /* listas sin viñetas */
 
 .service-name { font-size: 20px; margin-bottom: 12px; }
 
-/* === MARCAS === */
-.brands {
+.about {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 24px;
-  text-align: center;
-}
-.brands-title {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 13px;
-  color: var(--color-muted);
-  margin-bottom: 28px;
-}
-.brands-list {
-  display: flex;
-  flex-wrap: wrap;             /* si no caben en una fila, saltan a la siguiente */
-  justify-content: center;
-  gap: 16px 40px;             /* 16px entre filas, 40px entre columnas */
-}
-.brand {
-  font-family: var(--font-heading);
-  font-size: 22px;
-  color: var(--color-muted);
-}
-
-.about {
-  max-width: 800px;
-  margin: 0 auto;
   padding: 80px 24px;
-  text-align: center;
 }
 .about-title {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 14px;
   color: var(--color-accent);
-  margin-bottom: 16px;
-}
-.about-headline {
-  font-size: 36px;
-  line-height: 1.25;
-}
-
-/* === ASISTENTE IA === */
-.assistant {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 60px 24px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
-/* La tarjeta del chat */
-.chat {
-  max-width: 480px;
-  margin: 0 auto;
+/* Dos columnas: foto a la izquierda, texto a la derecha */
+.about-content {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;  /* foto un poco más estrecha que el texto */
+  gap: 56px;
+  align-items: center;
+}
+
+/* El MARCO de la foto: passepartout + sombra que la hace resaltar */
+.about-photo {
   background-color: var(--color-card);
+  padding: 12px;                                    /* el "paspartú" alrededor de la foto */
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  overflow: hidden;         /* recorta lo que se salga de las esquinas redondas */
-  text-align: left;
-  box-shadow: 0 4px 20px hsl(25 15% 15% / 0.06);   /* 👈 profundidad, sin hover */ 
+  box-shadow: 0 24px 60px hsl(25 30% 15% / 0.28);   /* sombra amplia = profundidad */
+  transform: rotate(-1.5deg);                        /* ligera inclinación, más natural */
+  transition: transform 0.3s ease;
+}
+.about-photo:hover { transform: rotate(0); }        /* se endereza al pasar el ratón */
+
+.about-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;              /* proporción retrato */
+  object-fit: cover;               /* rellena el marco sin deformar */
+  border-radius: calc(var(--radius) - 4px);
 }
 
-.chat-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-  border-bottom: 1px solid var(--color-border);
-  font-size: 14px;
+.about-headline {
+  font-size: 34px;
+  line-height: 1.25;
+  margin-bottom: 24px;
 }
-.chat-status { color: var(--color-accent); }
-
-/* El cuerpo: una COLUMNA de burbujas */
-.chat-body {
-  display: flex;
-  flex-direction: column;   /* burbujas apiladas verticalmente */
-  gap: 12px;
-  padding: 20px;
-}
-
-/* Estilo común de toda burbuja */
-.msg {
-  padding: 12px 16px;
-  border-radius: 14px;
-  max-width: 80%;
-  font-size: 15px;
-}
-
-/* Burbuja del BOT: a la izquierda */
-.msg-bot {
-  align-self: flex-start;   /* 👈 se pega a la izquierda */
-  background-color: var(--color-bg);
-}
-
-/* Burbuja del USUARIO: a la derecha */
-.msg-user {
-  align-self: flex-end;     /* 👉se pega a la derecha */
-  background-color: var(--color-accent);
-  color: var(--color-bg);
-}
-
-/* Estilo del texto demo visual */
-.chat-note {
-  text-align: center;
+.about-desc {
   color: var(--color-muted);
-  font-size: 13px;
-  padding: 0 20px 16px;
-  margin-top: 12px;
+  font-size: 17px;
 }
 
 /* === RESULTADOS: galería === */
@@ -420,10 +330,8 @@ ul { list-style: none; }                       /* listas sin viñetas */
 }
 
 /* === ESPACIADO GENEROSO ENTRE SECCIONES === */
-.hero,
 .about,
 .services,
-.assistant,
 .results,
 .contact {
   padding-top: var(--space-section);
@@ -465,14 +373,15 @@ ul { list-style: none; }                       /* listas sin viñetas */
   .headline { font-size: 36px; }
   .section-title { font-size: 30px; }
 
+  /* Sobre mí: foto y texto dejan de ir lado a lado y se apilan */
+  .about-content { grid-template-columns: 1fr; gap: 32px; }
+  .about-photo { transform: none; }   /* sin inclinación en móvil */
+
   /* Servicios: de 3 columnas a 1 */
   .services-grid { grid-template-columns: 1fr; }
 
   /* Galería: de 4 columnas a 2 */
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-
-  /* Stats: de fila a columna */
-  .stats { flex-wrap: wrap; gap: 24px; }
 
   /* En móvil, menos aire en TODAS las secciones de golpe */
   :root { --space-section: 64px; }
