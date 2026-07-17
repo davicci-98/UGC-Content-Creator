@@ -84,3 +84,45 @@ navLinks.querySelectorAll("a").forEach(enlace => {
     navToggle.setAttribute("aria-expanded", "false");
   });
 });
+
+// ===================================================
+//  FORMULARIO "TRABAJEMOS JUNTOS" → envío real con Web3Forms
+// ===================================================
+// Una web estática no puede enviar emails por sí sola: necesita un servicio
+// intermediario. Web3Forms recibe los datos del formulario y te los reenvía a
+// tu Gmail. Aquí lo enviamos "en segundo plano" (fetch) para no recargar la
+// página y mostrar un mensaje de estado al visitante.
+const contactForm = document.querySelector(".contact-form");
+const formStatus  = document.querySelector(".form-status");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();   // evita la recarga: gestionamos el envío nosotros
+
+    formStatus.textContent = "Enviando…";
+    formStatus.className = "form-status is-sending";
+
+    try {
+      // recojo todos los campos del formulario de golpe (incluye la access_key)
+      const datos = new FormData(contactForm);
+
+      const respuesta = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: datos
+      });
+      const resultado = await respuesta.json();
+
+      if (resultado.success) {
+        formStatus.textContent = "¡Mensaje enviado! Te responderé en menos de 24 h.";
+        formStatus.className = "form-status is-ok";
+        contactForm.reset();               // limpia el formulario
+      } else {
+        formStatus.textContent = "No se pudo enviar. Escríbeme a david.mdrz98@gmail.com";
+        formStatus.className = "form-status is-error";
+      }
+    } catch (error) {
+      formStatus.textContent = "No se pudo enviar. Escríbeme a david.mdrz98@gmail.com";
+      formStatus.className = "form-status is-error";
+    }
+  });
+}

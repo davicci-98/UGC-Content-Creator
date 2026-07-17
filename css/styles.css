@@ -14,7 +14,7 @@
   /* Paleta crema cálida (traducida de tu documento de estilo) */
   --color-bg: hsl(36 33% 97%);       /* fondo crema */
   --color-text: hsl(25 15% 15%);     /* texto casi negro cálido */
-  --color-muted: hsl(25 10% 50%);    /* gris secundario */
+  --color-muted: hsl(25 10% 42%);    /* gris secundario (oscurecido para cumplir contraste AA ≥ 4.5:1) */
   --color-accent: hsl(25 55% 35%);   /* MARRÓN terracota: color de marca */
   --color-accent-dark: hsl(25 55% 25%);
   --color-card: hsl(36 25% 95%);     /* fondo de tarjetas */
@@ -311,6 +311,82 @@ ul { list-style: none; }                       /* listas sin viñetas */
   font-size: 16px;
   cursor: pointer;
 }
+.contact-form button:hover { background-color: var(--color-accent-dark); }
+
+/* Mensaje de estado del formulario (enviando / enviado / error) */
+.form-status {
+  margin-top: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 1.4em;              /* reserva el hueco para que no salte el layout */
+}
+.form-status.is-sending { color: var(--color-muted); }
+.form-status.is-ok      { color: var(--color-accent); }
+.form-status.is-error   { color: hsl(0 60% 42%); }
+
+/* Enlace al correo directo, debajo del formulario */
+.contact-direct {
+  margin-top: 24px;
+  color: var(--color-muted);
+  font-size: 15px;
+}
+.contact-direct a {
+  color: var(--color-accent);
+  font-weight: 600;
+  border-bottom: 1px solid currentColor;
+}
+
+/* === REDES SOCIALES === */
+.social {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;             /* en móvil pasan a apilarse */
+  gap: 24px;
+  margin-top: 48px;
+}
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 220px;
+  padding: 32px 24px;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 20px hsl(25 15% 15% / 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px hsl(25 15% 15% / 0.12);
+  border-color: var(--color-accent);
+}
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  color: var(--color-bg);      /* el icono hereda este color vía currentColor */
+  margin-bottom: 4px;
+}
+.social-name {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  color: var(--color-text);
+}
+.social-handle {
+  color: var(--color-muted);
+  font-size: 15px;
+}
 
 /* === FOOTER === */
 .footer {
@@ -332,8 +408,10 @@ ul { list-style: none; }                       /* listas sin viñetas */
 /* === ESPACIADO GENEROSO ENTRE SECCIONES === */
 .about,
 .services,
+.pricing,
 .results,
-.contact {
+.contact,
+.social {
   padding-top: var(--space-section);
   padding-bottom: var(--space-section);
 }
@@ -379,6 +457,9 @@ ul { list-style: none; }                       /* listas sin viñetas */
 
   /* Servicios: de 3 columnas a 1 */
   .services-grid { grid-template-columns: 1fr; }
+
+  /* Tarifas: de 3 columnas a 1 */
+  .pricing-grid { grid-template-columns: 1fr; }
 
   /* Galería: de 4 columnas a 2 */
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
@@ -455,6 +536,80 @@ body {
 .case-name { font-size: 20px; margin-bottom: 10px; }
 .case-desc { color: var(--color-muted); font-size: 15px; }
 
+/* === TARIFAS === */
+.pricing {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);   /* 3 tarjetas por fila */
+  gap: 24px;
+  text-align: left;
+}
+
+/* Tarjeta de precio (mismo estilo de tarjeta que en Servicios) */
+.price-card {
+  display: flex;
+  flex-direction: column;                  /* así el botón queda siempre abajo */
+  background-color: var(--color-card);
+  padding: 32px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px hsl(25 15% 15% / 0.06);   /* sombra suave */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.price-card:hover {
+  transform: translateY(-4px);             /* se levanta al pasar el ratón */
+  box-shadow: 0 8px 30px hsl(25 15% 15% / 0.12);
+}
+
+.price-name { font-size: 19px; margin-bottom: 12px; }
+.price-tag {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+.price-from {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.price-unit {
+  color: var(--color-muted);
+  font-size: 14px;
+  margin: 6px 0 16px;
+}
+.price-desc {
+  color: var(--color-text);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+.price-cta {
+  margin-top: auto;                          /* empuja el botón al fondo de la tarjeta */
+  align-self: flex-start;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.price-cta:hover { background-color: var(--color-accent-dark); }
+
+.pricing-note {
+  color: var(--color-muted);
+  font-size: 14px;
+  max-width: 640px;
+  margin: 32px auto 0;
+}
+
 .galeria-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -501,12 +656,3 @@ body {
   color: var(--color-muted);
 }
 .modal-title { font-size: 24px; margin-bottom: 24px; }
-
-.contact {
-  background-image:
-    linear-gradient(hsl(25 15% 15% / 0.55), hsl(25 15% 15% / 0.55)),  /* overlay OSCURO */
-    url("images/fondo-contacto.jpg");
-  background-size: cover;
-  background-position: center;
-  color: var(--color-bg);   /* texto CLARO porque el overlay es oscuro */
-}
