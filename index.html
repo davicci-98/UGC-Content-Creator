@@ -18,8 +18,8 @@
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <ul class="nav-links">
       <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#nichos">Nichos</a></li>
       <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#tarifas">Tarifas</a></li>
       <li><a href="#redes">Sígueme</a></li>
     </ul>
     <a href="#trabajemos" class="btn-cta">Trabajemos juntos</a>
@@ -40,7 +40,7 @@
     <div class="about-content">
       <!-- 👇 Reemplaza esta imagen por tu foto (ponla en css/images/ y cambia el src) -->
       <div class="about-photo">
-        <img src="https://picsum.photos/id/1005/600/750" alt="David Madrid Blázquez, creador de contenido UGC">
+        <img src="css/images/Imagen_sobremí.jpeg" alt="David Madrid Blázquez, creador de contenido UGC">
       </div>
       <div class="about-text">
         <h2 class="about-headline">No hago anuncios. Cuento historias que la gente quiere mirar hasta el final.</h2>
@@ -49,9 +49,24 @@
     </div>
   </section>
 
+  <!-- NICHOS / SECTORES -->
+  <section class="niches" id="nichos">
+    <p class="section-eyebrow">Mis especialidades</p>
+    <h2 class="section-title">Sectores en los que me especializo</h2>
+    <p class="section-subtitle">Contenido pensado para las marcas de estos sectores, donde mejor sé conectar.</p>
+
+    <div class="niches-grid">
+      <div class="niche-card"><span class="niche-icon">☕</span><span class="niche-name">Café</span></div>
+      <div class="niche-card"><span class="niche-icon">🥑</span><span class="niche-name">Alimentación</span></div>
+      <div class="niche-card"><span class="niche-icon">🏠</span><span class="niche-name">Hogar</span></div>
+      <div class="niche-card"><span class="niche-icon">📱</span><span class="niche-name">Tech</span></div>
+      <div class="niche-card"><span class="niche-icon">🎮</span><span class="niche-name">Ocio</span></div>
+    </div>
+  </section>
+
   <!-- TRABAJO: SERVICIOS -->
   <section class="services" id="servicios">
-    <p class="section-eyebrow">Servicios</p>
+    <p class="section-eyebrow">Servicios y Tarifas</p>
     <h2 class="section-title">Aquello a lo que soy fiel</h2>
     <p class="section-subtitle">Cada formato nace de una idea en la que creo y a la que me mantengo fiel. Toca cada tarjeta para descubrir todo el contenido.</p>
 
@@ -65,6 +80,7 @@
         <div class="case-body">
           <h3 class="case-name">Fotografía de Conversión</h3>
           <p class="case-desc">Fotografía de producto en contexto real, luz natural y estética cuidada para feed y catálogo.</p>
+          <p class="case-price"><span class="case-price-from">desde</span> 15 €</p>
         </div>
       </a>
 
@@ -76,6 +92,7 @@
         <div class="case-body">
           <h3 class="case-name">Videos Cortos de Alto Impacto</h3>
           <p class="case-desc">Piezas dinámicas con mensaje claro y llamativo que generen atención inmediata en tu aduiencia</p>
+          <p class="case-price"><span class="case-price-from">desde</span> 40 €</p>
         </div>
       </a>
 
@@ -87,6 +104,7 @@
         <div class="case-body">
           <h3 class="case-name">Contenido de Marca Estándar</h3>
           <p class="case-desc">Material versátil y escalable para alimentar tus campañas a largo plazo.</p>
+          <p class="case-price"><span class="case-price-from">desde</span> 60 €</p>
         </div>
       </a>
 
@@ -98,6 +116,7 @@
         <div class="case-body">
           <h3 class="case-name">Storytelling y Narrativa de Marca</h3>
           <p class="case-desc">Videos de largo formato diseñados para construir lealtad profunda.</p>
+          <p class="case-price"><span class="case-price-from">desde</span> 80 €</p>
         </div>
       </a>
 
@@ -109,6 +128,7 @@
         <div class="case-body">
           <h3 class="case-name">Demostraciones y Casos de Uso</h3>
           <p class="case-desc">Contenido estratégico centrado en resolver objeciones de compra y demostrar el valor de tu producto.</p>
+          <p class="case-price"><span class="case-price-from">desde</span> 40 €</p>
         </div>
       </a>
 
@@ -120,70 +140,10 @@
         <div class="case-body">
           <h3 class="case-name">Unboxing y Prueba Social</h3>
           <p class="case-desc">Reseñas genuinas y aperturas de producto que generen confianza en el comprador.</p>
+          <p class="case-price"><span class="case-price-from">desde</span> 25 €</p>
         </div>
       </a>
     </div>
-  </section>
-
-  <!-- TARIFAS -->
-  <section class="pricing" id="tarifas">
-    <p class="section-eyebrow">Tarifas</p>
-    <h2 class="section-title">Precios claros, sin sorpresas</h2>
-    <p class="section-subtitle">Tarifas orientativas por servicio, pensadas para marcas que empiezan. Cada proyecto es único: escríbeme y lo ajustamos juntos.</p>
-
-    <div class="pricing-grid">
-
-      <div class="price-card">
-        <h3 class="price-name">Fotografía de Conversión</h3>
-        <p class="price-tag"><span class="price-from">desde</span> 15 €</p>
-        <p class="price-unit">por pack de fotos</p>
-        <p class="price-desc">Fotografía de producto en contexto real, luz natural y edición cuidada para feed y catálogo.</p>
-        <a href="#trabajemos" class="price-cta">Solicitar</a>
-      </div>
-
-      <div class="price-card">
-        <h3 class="price-name">Videos Cortos de Alto Impacto</h3>
-        <p class="price-tag"><span class="price-from">desde</span> 40 €</p>
-        <p class="price-unit">por vídeo (TikTok / Reel)</p>
-        <p class="price-desc">Piezas dinámicas con mensaje claro y llamativo que captan la atención desde el primer segundo.</p>
-        <a href="#trabajemos" class="price-cta">Solicitar</a>
-      </div>
-
-      <div class="price-card">
-        <h3 class="price-name">Contenido de Marca Estándar</h3>
-        <p class="price-tag"><span class="price-from">desde</span> 60 €</p>
-        <p class="price-unit">por pieza</p>
-        <p class="price-desc">Material versátil y escalable para alimentar tus campañas a largo plazo.</p>
-        <a href="#trabajemos" class="price-cta">Solicitar</a>
-      </div>
-
-      <div class="price-card">
-        <h3 class="price-name">Storytelling y Narrativa de Marca</h3>
-        <p class="price-tag"><span class="price-from">desde</span> 80 €</p>
-        <p class="price-unit">por vídeo de largo formato</p>
-        <p class="price-desc">Vídeos diseñados para conectar en profundidad y construir lealtad hacia tu marca.</p>
-        <a href="#trabajemos" class="price-cta">Solicitar</a>
-      </div>
-
-      <div class="price-card">
-        <h3 class="price-name">Demostraciones y Casos de Uso</h3>
-        <p class="price-tag"><span class="price-from">desde</span> 40 €</p>
-        <p class="price-unit">por vídeo</p>
-        <p class="price-desc">Contenido estratégico que resuelve objeciones de compra y demuestra el valor de tu producto.</p>
-        <a href="#trabajemos" class="price-cta">Solicitar</a>
-      </div>
-
-      <div class="price-card">
-        <h3 class="price-name">Unboxing y Prueba Social</h3>
-        <p class="price-tag"><span class="price-from">desde</span> 25 €</p>
-        <p class="price-unit">por vídeo</p>
-        <p class="price-desc">Reseñas genuinas y aperturas de producto que generan confianza en el comprador.</p>
-        <a href="#trabajemos" class="price-cta">Solicitar</a>
-      </div>
-
-    </div>
-
-    <p class="pricing-note">Los precios son orientativos y pueden variar según el alcance del proyecto. ¿Necesitas varias piezas? Consúltame por packs y descuentos por volumen.</p>
   </section>
 
   <!-- MODAL: galería de contenido de Drive -->
