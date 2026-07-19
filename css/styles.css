@@ -53,9 +53,8 @@ ul { list-style: none; }                       /* listas sin viñetas */
   font-family: var(--font-heading);
   font-size: 18px;
   color: var(--color-accent);
-  font-weight: bold;
-  white-space: nowrap;  /* evita que el logo se rompa en varias líneas */
   font-weight: 700;
+  white-space: nowrap;  /* evita que el logo se rompa en varias líneas */
 }
 
 /* Los enlaces del menú, en fila */
@@ -362,7 +361,7 @@ ul { list-style: none; }                       /* listas sin viñetas */
     order: 3;                            /* aparece debajo del logo/botón */
   }
   .nav-links.open { display: flex; }     /* visible solo con la clase .open */
-  .btn-cta { display: none; }            /* el CTA suelto se oculta (ya está "Contacto" en el menú) */
+  .btn-cta { display: none; }            /* el CTA suelto se oculta en móvil para aligerar la barra */
 
   /* Titulares más pequeños (56px es enorme en móvil) */
   .headline { font-size: 36px; }
@@ -382,7 +381,7 @@ ul { list-style: none; }                       /* listas sin viñetas */
   :root { --space-section: 64px; }
 }
 
-/* === BANDAS DE COLOR EN SECCIONES ALTERNAS === */
+/* === BANDA DE COLOR DE FONDO (sección Servicios) === */
 
 /* Evita una barra de scroll horizontal por el truco del 100vw */
 body {
@@ -407,7 +406,7 @@ body {
   z-index: -1;                      /* la manda DETRÁS del contenido */
 }
 
-/* === TARJETAS CASO DE ESTUDIO (Servicios + Resultados) === */
+/* === TARJETAS CASO DE ESTUDIO (Servicios) === */
 .case-card {
   display: flex;
   flex-direction: column;
