@@ -143,6 +143,14 @@ ul { list-style: none; }                       /* listas sin viñetas */
   grid-template-columns: repeat(3, 1fr);  /* 3 columnas iguales */
   gap: 24px;                               /* separación entre tarjetas */
   text-align: left;
+  align-items: stretch;                     /* que todas las tarjetas tengan la misma altura */
+}
+
+/* Opcional: que se apilen en móvil en vez de aplastarse */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .about {
@@ -431,8 +439,8 @@ body {
   aspect-ratio: 3 / 2;
 }
 .case-media img {
+  height: 260px;
   width: 100%;
-  height: 100%;
   object-fit: cover;
   display: block;
 }
